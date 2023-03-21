@@ -16,3 +16,24 @@ server {
   }
 }
 
+const url = "http://rogunlade.eastus.cloudapp.azure.com:80/hello/world";
+    fetch(url)
+    .then(response => response.json())
+    .then(json => this.setState({ posts: json }))
+	@@ -18,21 +18,26 @@ class App extends Component {
+  render() {
+    const { posts } = this.state;
+    return (
+      <div className="container">
+        <div className="jumbotron">
+          <h1 className="display-4">Blog posts</h1>
+        </div>
+        {posts.map((post) => (
+          <div className="card" key={post.name}>
+            <div className="card-header">
+              #{post.name} {post.age}
+            </div>
+            <div className="card-body">
+              <p className="card-text">{post.name}</p>
+            </div>
+          </div>
